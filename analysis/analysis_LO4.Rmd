@@ -1,0 +1,73 @@
+---
+title: 'GDV Report LO4'
+author: Lukas Gehrig
+output: html_notebook
+---
+
+
+
+```{r}
+library(tidyverse)
+mpg
+```
+
+```{r}
+ggplot(data=mpg) + 
+  geom_point(mapping=aes(x=displ, y=hwy)) +
+  ggtitle('Relationship Engine Size (displ) & Fuel Efficiency (hwy) 2D')
+```
+
+```{r}
+ggplot(data=mpg) + 
+  geom_point(mapping=aes(x=displ, y=hwy, color=class)) +
+  ggtitle('Relationship Engine Size (displ) & Fuel Efficiency (hwy) 3D')
+```
+
+```{r}
+ggplot(data=mpg) + 
+  geom_point(mapping=aes(x=displ, y=hwy, color=class, alpha=cty)) +
+  ggtitle('Relationship Engine Size (displ) & Fuel Efficiency (hwy) 4D')
+```
+
+```{r}
+ggplot(data=mpg) + 
+  geom_point(mapping=aes(x=displ, y=hwy, color=class, size=cyl)) +
+  ggtitle('Relationship Engine Size (displ) & Fuel Efficiency (hwy) 4D')
+```
+
+```{r}
+ggplot(data=mpg) + 
+  geom_point(mapping=aes(x=displ, y=hwy, color=class, size=cyl)) +
+  facet_wrap(~drv) +
+  ggtitle('Relationship Engine Size (displ) & Fuel Efficiency (hwy) 5D')
+```
+
+```{r}
+ggplot(data=mpg) + 
+  geom_point(mapping=aes(x=displ, y=hwy, color=class, size=cyl)) +
+  facet_grid(drv~cyl) +
+  ggtitle('Relationship Engine Size (displ) & Fuel Efficiency (hwy) 6D')
+```
+
+```{r}
+ggplot(data=mpg, mapping=aes(x=displ, y=hwy, color=drv)) + 
+  geom_point() +
+  stat_smooth(method='lm') +
+  ggtitle('Relationship Engine Size (displ) & Fuel Efficiency (hwy) Stats')
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
